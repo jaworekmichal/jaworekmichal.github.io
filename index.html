@@ -1,1 +1,60 @@
-hello word
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technologies matrix</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div class="container">
+
+    <div id="app">
+        <table>
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th>Family</th>
+                <th>Tool</th>
+                <th>Usages</th>
+            </tr>
+            </thead>
+            <tbody>
+            <template v-for="category in categories">
+                <tr>
+                    <td>{{category.name}}</td>
+                </tr>
+                <template v-for="family in category.families">
+                    <tr>
+                        <td></td>
+                        <td>{{family.name}}</td>
+                    </tr>
+                    <template v-for="tool in family.tools">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>{{tool.name}}</td>
+                            <td v-if="tool.usages">
+                                <ul>
+                                    <li v-for="usage in tool.usages">{{usage}}</li>
+                                </ul>
+                            </td>
+                            <td v-else>
+                                still waiting for chance
+                            </td>
+                        </tr>
+                    </template>
+                </template>
+            </template>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+
+<script src="index.js"></script>
+
+</html>
